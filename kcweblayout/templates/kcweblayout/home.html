@@ -1,0 +1,12 @@
+{% extends 'kcweblayout/base.html' %}
+
+{% block content %}
+        {% for key, value in chap_d.items %}
+           <div class="topic">
+            <h3> Part {{ value.part.id }}: {{ value.part.part_name }}</h2>
+            {% for chap in value.chap %}
+                <h5> <a href="{% url 'topic_detail' value.part.id chap.chap_num %}"> Chapter {{ chap.chap_num }}: {{ chap.chap_name }} </a> </h3>
+                {% endfor %}
+            </div>
+        {% endfor %}
+{% endblock %}
